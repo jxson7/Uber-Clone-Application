@@ -1,19 +1,30 @@
+import React from "react";
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { Provider } from 'react-redux';
+import { store } from './store';
+import HomeScreen from "./views/HomeScreen";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    //initial setup of Redux, and sync of data to store
+    <Provider store= {store}>
+      <NavigationContainer>
+      <SafeAreaProvider>
+      <HomeScreen />
       <StatusBar style="auto" />
-    </View>
+      </SafeAreaProvider>
+      </NavigationContainer>
+    </Provider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFFF',
     alignItems: 'center',
     justifyContent: 'center',
   },
