@@ -6,17 +6,14 @@ import { store } from "./store";
 import HomeScreen from "./views/HomeScreen";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
-
 export default function App() {
   return (
     //initial setup of Redux, and sync of data to store
     <Provider store= {store}>
-      <NavigationContainer>
       <SafeAreaProvider>
       <HomeScreen />
       <StatusBar style="auto" />
       </SafeAreaProvider>
-      </NavigationContainer>
     </Provider>
   );
 }
