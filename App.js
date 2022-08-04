@@ -5,15 +5,22 @@ import { Provider } from 'react-redux';
 import { store } from "./store";
 import HomeScreen from "./views/HomeScreen";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import 'react-native-gesture-handler'; 
+import { NavigationContainer, StackActions } from '@react-navigation/native';
+
+
+
 
 export default function App() {
   return (
     //initial setup of Redux, and sync of data to store
     <Provider store= {store}>
+      <NavigationContainer>
       <SafeAreaProvider>
-      <HomeScreen />
+        <HomeScreen/>
       <StatusBar style="auto" />
       </SafeAreaProvider>
+      </NavigationContainer>
     </Provider>
   );
 }
