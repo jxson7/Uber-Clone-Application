@@ -28,8 +28,16 @@ const HomeScreen = () => {
           },
           textInput: {
             fontSize: 18,
-          }
+          },
         }}
+        onPress={(data, details = null) => {
+          console.log(data)
+          console.log(details)
+
+        }}
+        fetchDetails={true}
+        enablePoweredByContainer={false}
+        minLength={2}
         query = {{
           key: GOOGLE_MAPS_APIKEY,
           language: 'en'
