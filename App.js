@@ -10,6 +10,9 @@ import {createStackNavigator} from '@react-navigation/stack';
 import MapScreen from "./views/MapScreen";
 
 
+// 2 Hour Mark
+// NOTE TO SELF: RESUME ON MAP INTEGRATION
+
 
 export default function App() {
   const Stack = createStackNavigator();
