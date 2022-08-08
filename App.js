@@ -10,7 +10,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 import MapScreen from "./views/MapScreen";
 
 
-// 2 Hour Mark
+// 2:37:40 
+// https://youtu.be/bvn_HYpix6s?list=PLyhfkMBYs9d8fCB8YdHXQzsc30pZTS-Eo&t=9460 
 // NOTE TO SELF: RESUME ON MAP INTEGRATION
 
 
