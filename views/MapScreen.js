@@ -9,7 +9,6 @@ import MapView from 'react-native-maps';
 const MapScreen = () => {
   return (
     <View>
-      <Text>Here is the Map tings....</Text>
       <View style={tw`h-1/2`}>
 
       <Map />
