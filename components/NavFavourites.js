@@ -2,6 +2,12 @@ import { StyleSheet, Text, View, TouchableOpacity, FlatList} from 'react-native'
 import React from 'react'
 import {Icon} from "react-native-elements";
 import tw from 'tailwind-react-native-classnames';
+import { useDispatch } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
+import { setDestination, setOrigin} from '../slices/navSlice';
+import NavOptions from './NavOptions';
+import {GOOGLE_MAPS_APIKEY} from "@env";
+import NavigateCard from './NavigateCard';
 
 
 const data =[
@@ -23,6 +29,9 @@ const data =[
 
 const NavFavourites = () => {
 
+    const dispatch = useDispatch();
+
+
     return  <FlatList data={data} keyExtractor={(item)=> item.id}
         ItemSeparatorComponent={() => (
             <View
@@ -30,7 +39,31 @@ const NavFavourites = () => {
             />
         )}
         renderItem={({item: {location, destination, icon} }) => (
-            <TouchableOpacity style={tw`flex-row items-center p-5`}>
+            <TouchableOpacity 
+            // onPress={(data, details = null) => {
+            //     dispatch(setOrigin({
+            //       location:data.location,
+            //       description: data.destination
+                
+            //     }))
+            //     dispatch(setDestination(null))
+                
+
+            //     }}
+            //     fetchDetails={true}
+            //     enablePoweredByContainer={false}
+            //     minLength={2}
+            //     query = {{
+            //     key: GOOGLE_MAPS_APIKEY,
+            //     language: 'en'
+            //     }}
+            //     nearbyPlacesAPI='GooglePlacesSearch'
+            //     debounce={400}
+            
+            
+
+            
+            style={tw`flex-row items-center p-5`}>
                 
                 <Icon 
                 style={tw`mr-4 rounded-full bg-gray-300 p-3`}
@@ -44,8 +77,8 @@ const NavFavourites = () => {
                     
                     <Text style={tw`text-gray-500`}>{destination}</Text>
                     
-                
                 </View>
+
                 
                 
                 
