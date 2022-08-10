@@ -8,7 +8,7 @@ import { setDestination, setOrigin} from '../slices/navSlice';
 import NavOptions from './NavOptions';
 import {GOOGLE_MAPS_APIKEY} from "@env";
 import NavigateCard from './NavigateCard';
-
+import MapScreen from '../views/MapScreen';
 
 const data =[
     {
@@ -30,6 +30,7 @@ const data =[
 const NavFavourites = () => {
 
     const dispatch = useDispatch();
+    const navigation = useNavigation();
 
 
     return  <FlatList data={data} keyExtractor={(item)=> item.id}
@@ -39,27 +40,19 @@ const NavFavourites = () => {
             />
         )}
         renderItem={({item: {location, destination, icon} }) => (
-            <TouchableOpacity 
-            // onPress={(data, details = null) => {
+            <TouchableOpacity
+            // onPress={(data, details=null) => {
             //     dispatch(setOrigin({
-            //       location:data.location,
-            //       description: data.destination
+            //       location:location,
+            //       description: destination
                 
             //     }))
             //     dispatch(setDestination(null))
-                
+            //     console.log(destination)
+            //     navigation.navigate(MapScreen)
 
             //     }}
             //     fetchDetails={true}
-            //     enablePoweredByContainer={false}
-            //     minLength={2}
-            //     query = {{
-            //     key: GOOGLE_MAPS_APIKEY,
-            //     language: 'en'
-            //     }}
-            //     nearbyPlacesAPI='GooglePlacesSearch'
-            //     debounce={400}
-            
             
 
             
