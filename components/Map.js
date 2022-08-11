@@ -28,6 +28,8 @@ const Map = () => {
   useEffect(() => {
     if (!origin || !destination) return;
 
+
+    // addition of different travel modes (https://maps.googleapis.com/maps/api/directions/json?origin=Boston,MA&destination=Concord,MA&waypoints=Charlestown,MA|via:Lexington,MA  )
     const getTravelTime = async () => {
       fetch([
         `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin.description}
