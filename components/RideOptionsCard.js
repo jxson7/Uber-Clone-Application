@@ -49,7 +49,7 @@ const RideOptionsCard = () => {
         >
           <Icon name="chevron-left" type="fontawesome" />
         </TouchableOpacity>
-      <Text style={tw`text-center py-5 text-xl `}>Select A Ride - {travelTimeInformation?.distance.text}</Text>
+      <Text style={tw`text-center py-5 text-xl `}>Select A Ride - {travelTimeInformation?.distance?.text}</Text>
       </View>
 
       <FlatList
@@ -71,7 +71,7 @@ const RideOptionsCard = () => {
           source= {{uri: image}}/>
           <View style={tw`-ml-6`}>
             <Text style={tw`text-xl font-semibold`}>{title}</Text>
-            <Text> Travel Time: {travelTimeInformation?.duration.text}</Text>
+            <Text> Travel Time: {travelTimeInformation?.duration?.text}</Text>
           </View>
           <Text style={tw`text-xl`}>
             {new Intl.NumberFormat('en-gb', {
@@ -79,7 +79,7 @@ const RideOptionsCard = () => {
               currency: 'GBP'
             }
             ).format(
-            (travelTimeInformation?.duration.value * SURGE_CHARGE_RATE * multiplier) /100
+            (travelTimeInformation?.duration?.value * SURGE_CHARGE_RATE * multiplier) /100
             )
             }
           </Text>
