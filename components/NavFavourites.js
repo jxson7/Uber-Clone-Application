@@ -15,7 +15,7 @@ const data =[
     id: "123",
     icon: "home",
     location: "Home",
-    destination: "Code Street, London, UK",
+    destination: "116 Overdown Road, Tilehurst, Reading, UK",
     },
     {
     id: "456",
@@ -41,18 +41,22 @@ const NavFavourites = () => {
         )}
         renderItem={({item: {location, destination, icon} }) => (
             <TouchableOpacity
-            // onPress={(data, details=null) => {
-            //     dispatch(setOrigin({
-            //       location:location,
-            //       description: destination
+            onPress={(data, details=null) => {
+                dispatch(setOrigin({
+                  location:location,
+                  description: destination
+                  
+                })
                 
-            //     }))
-            //     dispatch(setDestination(null))
-            //     console.log(destination)
-            //     navigation.navigate(MapScreen)
+                )
+                dispatch(setDestination(null))
 
-            //     }}
-            //     fetchDetails={true}
+                }}
+                debounce={400}
+
+                
+                
+        
             
 
             
@@ -71,21 +75,9 @@ const NavFavourites = () => {
                     <Text style={tw`text-gray-500`}>{destination}</Text>
                     
                 </View>
-
-                
-                
-                
                 
             </TouchableOpacity>
-
-            
-
-            
-            
         )
-        
-    
-    
     }/>;
         
     

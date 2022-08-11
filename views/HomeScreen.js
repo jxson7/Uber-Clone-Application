@@ -27,7 +27,7 @@ const HomeScreen = () => {
         />
 
         <GooglePlacesAutocomplete 
-        placeholder="Where?"
+        placeholder="Where From?"
         styles={{
           container: {
             flex: 0,
