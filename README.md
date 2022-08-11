@@ -12,3 +12,9 @@ The following application focuses on the replication of an application developed
 - TailwindCSS
 - Redux
 - Expo Development Suite
+
+## Testing of Application and Output
+
+<img src="https://github.com/jxson7/Uber-Clone-Application/blob/master/Testing/T1.png" width="400" >
+<img src="https://github.com/jxson7/Uber-Clone-Application/blob/master/Testing/T2.png" width="400" >
+
