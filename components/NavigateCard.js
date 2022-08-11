@@ -44,7 +44,6 @@ const NavigateCard = () => {
             debounce={400}
           />
         </View>
-        <NavFavourites />
       </View>
 
       <View
