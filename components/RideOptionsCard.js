@@ -30,6 +30,10 @@ const data = [
   },
 ];
 
+// if surge charging is present, value increases
+const SURGE_CHARGE_RATE = 1.5;
+
+
 const RideOptionsCard = () => {
   const navigation = useNavigation();
   const [selected, setSelected] = useState(null);
@@ -37,11 +41,11 @@ const RideOptionsCard = () => {
 
 
   return (
-    <SafeAreaView style ={tw`bg-white flex-grow`}>
-      <View style>
+    <SafeAreaView style ={tw`bg-white flex-grow `}>
+      <View style={tw`-top-10`}>
         <TouchableOpacity 
         onPress={() => navigation.navigate("NavigateCard")} 
-        style={tw`absolute top-3 left-5 p-3 rounded-full`}
+        style={[tw`absolute top-3 left-5 p-3 z-50 rounded-full`]}
         >
           <Icon name="chevron-left" type="fontawesome" />
         </TouchableOpacity>
@@ -49,13 +53,14 @@ const RideOptionsCard = () => {
       </View>
 
       <FlatList
+      style={tw`-top-10`}
       data = {data}
       keyExtractor = {(item => item.id)}
       renderItem = {({item:{id, title, multiplier, image}, item}) => (
         <TouchableOpacity 
         onPress={() => setSelected(item)}
         
-        style={tw`flex-row justify-between items-center px-10 ${id === selected?.id && "bg-gray-200"}`}>
+        style={tw`flex-row justify-between items-center px-6 ${id === selected?.id && "bg-gray-200"}`}>
           <Image
           style={{
             width: 100,
@@ -66,16 +71,25 @@ const RideOptionsCard = () => {
           source= {{uri: image}}/>
           <View style={tw`-ml-6`}>
             <Text style={tw`text-xl font-semibold`}>{title}</Text>
-            <Text>Travel Time...</Text>
+            <Text> Travel Time: {travelTimeInformation?.duration.text}</Text>
           </View>
-          <Text style={tw`text-xl`}>£99</Text>
+          <Text style={tw`text-xl`}>
+            {new Intl.NumberFormat('en-gb', {
+              style: 'currency',
+              currency: 'GBP'
+            }
+            ).format(
+            (travelTimeInformation?.duration.value * SURGE_CHARGE_RATE * multiplier) /100
+            )
+            }
+          </Text>
         </TouchableOpacity>
 
       )}
 
       />
 
-      <View>
+      <View style={tw`-top-10`}>
         <TouchableOpacity disabled={!selected}style = {tw`bg-black py-3 m-3 ${!selected && "bg-gray-300"}`}>
           <Text style={tw`text-center text-white text-xl`}> Chose {selected?.title} </Text>
         </TouchableOpacity>

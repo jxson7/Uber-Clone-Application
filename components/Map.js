@@ -30,12 +30,17 @@ const Map = () => {
     useEffect(() => {
       if (!origin || !destination) return;
 
+      
+      
       const getTravelTime = async() => {
-        fetch(`https://maps.googleapi.com/maps/api/distancematrix/json?units=imperial&origins=${origin.description}&destinations=${destination.description}&key=${GOOGLE_MAPS_APIKEY}`
-        )
+        fetch([`https://maps.googleapis.com/maps/api/distancematrix/json?origins=${origin.description}
+        &destinations=
+        ${destination.description}&units=imperial&key=${GOOGLE_MAPS_APIKEY}`
+      ])
         .then((res) => res.json())
         .then((data) => {
-          dispatch(setTravelTime(data.rows[0].elements[0]));
+          dispatch(setTravelTime(data.rows[0].elements[0]))
+          console.log(data)
         });
       };
 
