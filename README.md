@@ -12,6 +12,10 @@ The following application focuses on the replication of an application developed
 - TailwindCSS
 - Redux
 - Expo Development Suite
+- Google Directions API
+- Google Distance Matrix API
+- React Native Elements
+- Variation of Map Styling for iOS/Android Devices 
 
 ## Testing of Application and Output
 
