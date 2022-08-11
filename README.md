@@ -1,4 +1,4 @@
-# 🚙 Uber Application Using React 🚙
+# 🚙 Uber Application Using React Native 🚙
 
 The following application focuses on the replication of an application developed by Uber, with intentions of understanding frameworks aligned with the tool. The application will focus on developing the mentioned via React 
 
