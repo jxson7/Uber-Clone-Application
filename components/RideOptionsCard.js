@@ -11,19 +11,19 @@ import { selectTravel } from "../slices/navSlice";
 const data = [
   {
     id: "Uber-X-123",
-    title: "Uber X",
+    title: "Tesla Model Y",
     multiplier: 1,
     image: "https://links.papareact.com/3pn",
   },
   {
     id: "Uber-XL-456",
-    title: "Uber XL",
+    title: "Ford Galaxy",
     multiplier: 1.2,
     image: "https://links.papareact.com/5w8",
   },
   {
     id: "Uber-Lux-789",
-    title: "Uber Lux",
+    title: "Ford Mustang",
     multiplier: 1.75,
     image: "https://links.papareact.com/7pf",
   },
