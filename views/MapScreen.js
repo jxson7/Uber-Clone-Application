@@ -10,6 +10,11 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { Icon } from "react-native-elements/dist/icons/Icon";
 import { useNavigation } from "@react-navigation/native";
 
+
+
+// verification of modification, via Huawei repo 
+
+
 const MapScreen = () => {
   const Stack = createStackNavigator();
   const navigation = useNavigation();
