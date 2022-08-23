@@ -21,7 +21,7 @@ const HomeScreen = () => {
             resizeMode: "contain",
           }}
           source={{
-            uri: "https://links.papareact.com/gzs",
+            uri: "https://www.reading.ac.uk/news-archive/version3/images/Logoinnewsredbox646484_40174.jpg",
           }}
         />
 

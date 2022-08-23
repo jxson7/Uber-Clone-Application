@@ -10,15 +10,17 @@ import { selectOrigin } from "../slices/navSlice";
 const data = [
   {
     id: "001",
-    title: "Book a Ride",
-    image: "https://links.papareact.com/3pn",
+    title: "Start Journey",
+    image: "https://links.papareact.com/7pf",
     screen: "MapScreen",
   },
   {
     id: "002",
-    title: "Order Food",
-    image: "https://links.papareact.com/28w",
+    title: "View Profile",
+    image: "https://1stwebdesigner.com/wp-content/uploads/2013/12/fnal2-570x456.png",
     screen: "EatsSreen",
+    style: ""
+    
   },
 ];
 
