@@ -14,31 +14,42 @@ import { selectTravel } from "../slices/navSlice";
 const data = [
   {
     id: "Uber-X-123",
-    title: "Tesla Model Y",
+    title: "Audi TT ('16)",
     multiplier: 1,
     image: "https://links.papareact.com/3pn",
+    mpg: 26 ,
   },
   {
     id: "Uber-XL-456",
-    title: "Galaxy",
+    title: "Ford Galaxy ('22) ",
     multiplier: 1.2,
     image: "https://links.papareact.com/5w8",
+    mpg: 44.1,
   },
   {
     id: "Uber-Lux-789",
-    title: "Mustang",
+    title: "Ford Mustang ('21)",
     multiplier: 1.75,
     image: "https://links.papareact.com/7pf",
+    mpg: 19,
+
   },
 ];
 
 // if surge charging is present, value increases
 const SURGE_CHARGE_RATE = 1.5;
+const DIESEL_CO2_RATE = 2.68;
+const PETROL_CO2_RATE = 2.31;
+const GALLON_TO_LITRE = 4.546;
+const CONVERSION = 1616.57143
+
+
 
 const RideOptionsCard = () => {
   const navigation = useNavigation();
   const [selected, setSelected] = useState(null);
   const travelTimeInformation = useSelector(selectTravel);
+  
 
   return (
     <SafeAreaView style={tw`bg-white flex-grow `}>
@@ -50,15 +61,16 @@ const RideOptionsCard = () => {
           <Icon name="chevron-left" type="fontawesome" />
         </TouchableOpacity>
         <Text style={tw`text-center py-5 text-xl `}>
-          Select A Ride - {travelTimeInformation?.distance?.text}
+          My Vehicles - Distance: {travelTimeInformation?.distance?.text}
         </Text>
+        
       </View>
 
       <FlatList
         style={tw`-top-10`}
         data={data}
         keyExtractor={(item) => item.id}
-        renderItem={({ item: { id, title, multiplier, image }, item }) => (
+        renderItem={({ item: { id, title, mpg, multiplier, image }, item }) => (
           <TouchableOpacity
             onPress={() => setSelected(item)}
             style={tw`flex-row justify-between items-center px-6 ${
@@ -74,19 +86,32 @@ const RideOptionsCard = () => {
               source={{ uri: image }}
             />
             <View style={tw`-ml-6`}>
-              <Text style={tw`text-xl font-semibold`}>{title}</Text>
-              <Text> Travel Time: {travelTimeInformation?.duration?.text}</Text>
+              <Text style={tw`text-xl text-center font-semibold`}>{title}</Text>
+              <Text> Travel: {travelTimeInformation?.duration?.text}</Text>
             </View>
-            <Text style={tw`text-xl`}>
-              {new Intl.NumberFormat("en-gb", {
-                style: "currency",
-                currency: "GBP",
+
+            
+            <Text style={tw`text-lg text-justify`}>
+          
+            {/* <View>
+            const dist = {travelTimeInformation.distance.text}
+            dist = Number(dist.replace(/[^\d]/g, ''));    
+
+            </View> */}
+         
+            {/* ({travelTimeInformation?.distance?.text}/{selected?.mpg}*{GALLON_TO_LITRE.text}*{DIESEL_CO2_RATE}) */}
+
+            {new Intl.NumberFormat("en-gb", {
               }).format(
-                (travelTimeInformation?.duration?.value *
-                  SURGE_CHARGE_RATE *
-                  multiplier) /
-                  100
+                ((travelTimeInformation?.distance?.value /
+                  CONVERSION / mpg)*GALLON_TO_LITRE*DIESEL_CO2_RATE)
+                  
               )}
+              
+
+            </Text>
+            <Text style= {tw`font-bold`}>
+             CO2 KG
             </Text>
           </TouchableOpacity>
         )}
