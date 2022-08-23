@@ -8,6 +8,9 @@ import { useNavigation } from "@react-navigation/native";
 import { useSelector } from "react-redux";
 import { selectTravel } from "../slices/navSlice";
 
+
+
+// addition of MPG is required. 
 const data = [
   {
     id: "Uber-X-123",
@@ -17,13 +20,13 @@ const data = [
   },
   {
     id: "Uber-XL-456",
-    title: "Ford Galaxy",
+    title: "Galaxy",
     multiplier: 1.2,
     image: "https://links.papareact.com/5w8",
   },
   {
     id: "Uber-Lux-789",
-    title: "Ford Mustang",
+    title: "Mustang",
     multiplier: 1.75,
     image: "https://links.papareact.com/7pf",
   },
